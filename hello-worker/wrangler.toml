@@ -1,0 +1,6 @@
+name = "hello-worker"
+type = "javascript"
+account_id = "40f65b54b6ae9da78fd08bc344c189fe"
+workers_dev = true
+route = "*.lifedatabase.net/*"
+zone_id = "61b6143b810de973efbbc9eedb5e4c7b"
