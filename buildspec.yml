@@ -7,15 +7,3 @@ phases:
       - echo Build started on `date`
     finally:
       - echo This always runs even if the install command fails
-
-reports:
-  arn:aws:codebuild:us-west-2:662430452979:lifedatabase-build/lifedatabase-build-log:
-    files:
-      - "**/*"
-    base-directory: 'target/tests/reports'
-    discard-paths: no
-  reportGroupCucumberJson:
-    files:
-      - 'cucumber/target/cucumber-tests.xml'
-    discard-paths: yes
-    file-format: CUCUMBERJSON # default is JUNITXML
