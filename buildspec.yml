@@ -13,7 +13,7 @@ phases:
       - echo $HOME
       - ls $NVM_DIR
       - ls ~/.nvm
-      - source "$NVM_DIR/nvm.sh"
+      - . "$NVM_DIR/nvm.sh"
       - nvm install lts
       - npm install -g yarn
   build:
