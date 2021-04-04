@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+    finally:
+      - echo This always runs even if the install command fails
+
+reports:
+  arn:aws:codebuild:your-region:your-aws-account-id:report-group/report-group-name-1:
+    files:
+      - "**/*"
+    base-directory: 'target/tests/reports'
+    discard-paths: no
+  reportGroupCucumberJson:
+    files:
+      - 'cucumber/target/cucumber-tests.xml'
+    discard-paths: yes
+    file-format: CUCUMBERJSON # default is JUNITXML
