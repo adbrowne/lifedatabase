@@ -1,0 +1,11 @@
+name = "ui"
+type = "webpack"
+account_id = "40f65b54b6ae9da78fd08bc344c189fe"
+zone_id = "61b6143b810de973efbbc9eedb5e4c7b"
+workers_dev = true
+route = "*.lifedatabase.net/*"
+webpack_config = "node_modules/flareact/webpack"
+
+[site]
+bucket = "out"
+entry-point = "./"
