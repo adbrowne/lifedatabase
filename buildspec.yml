@@ -9,7 +9,7 @@ phases:
       - echo This always runs even if the install command fails
 
 reports:
-  arn:aws:codebuild:your-region:your-aws-account-id:report-group/report-group-name-1:
+  arn:aws:codebuild:us-west-2:662430452979:lifedatabase-build/lifedatabase-build-log:
     files:
       - "**/*"
     base-directory: 'target/tests/reports'
