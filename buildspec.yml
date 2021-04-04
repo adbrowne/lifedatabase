@@ -6,9 +6,6 @@ phases:
       - ./build/pre-build.sh
   build:
     commands:
-      - echo Entered the build phase...
-      - echo Build started on `date`
-      - nvm use lts
-      - terraform apply -auto-approve
+      - ./build/build.sh
     finally:
       - echo This always runs even if the install command fails
