@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
 echo Entered the build phase...
 echo Build started on `date`
 nvm use lts
