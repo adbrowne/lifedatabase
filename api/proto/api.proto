@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package api;
+
+import "google/protobuf/empty.proto";
+
+message Record {
+  int32 id = 1;
+  string name = 2;
+}
+
+service Api {
+  rpc GetRecord(google.protobuf.Empty) returns (Record) {};
+}
