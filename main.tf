@@ -33,3 +33,69 @@ output "cluster_arn" {
 resource "aws_ecs_cluster" "lifedatabase_ecs_cluster" {
   name = var.cluster_name
 }
+
+resource "aws_ecs_task_definition" "api" {
+  family = "api"
+  container_definitions = jsonencode([
+    {
+      name      = "api"
+      image     = "662430452979.dkr.ecr.us-west-2.amazonaws.com/lifedatabase-api:latest"
+      cpu       = 10
+      memory    = 512
+      essential = true
+      portMappings = [
+        {
+          containerPort = 9000
+          hostPort      = 9000
+        }
+      ]
+    }
+  ])
+
+  placement_constraints {
+    type       = "memberOf"
+    expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
+  }
+}
+
+resource "aws_iam_role" "lifedatabase-api" {
+  name = "lifedatabase-api-role"
+
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "ecs-tasks.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_ecs_service" "api" {
+  name            = "api"
+  cluster         = aws_ecs_cluster.lifedatabase_ecs_cluster.id
+  task_definition = aws_ecs_task_definition.api.arn
+  desired_count   = 1
+  iam_role        = aws_iam_role.lifedatabase-api.arn
+  depends_on      = [aws_iam_role_policy.lifedatabase-api]
+
+  ordered_placement_strategy {
+    type  = "binpack"
+    field = "cpu"
+  }
+  load_balancer {
+    target_group_arn = aws_lb_target_group.lifedatabase-api.arn
+    container_name   = "api"
+    container_port   = 9000
+  }
+
+  placement_constraints {
+    type       = "memberOf"
+    expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
+  }
+}
