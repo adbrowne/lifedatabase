@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ecb02a52-62a2-4cee-bd1d-9f82fcaf8662/deploy-status)](https://app.netlify.com/sites/lifedatabase/deploys)
+
 Lifedatabase.net homepage
 ## Getting Started
 
