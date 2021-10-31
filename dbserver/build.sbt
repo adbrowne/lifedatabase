@@ -20,7 +20,8 @@ lazy val root = (project in file("."))
       "io.circe"        %% "circe-generic"       % CirceVersion,
       "org.scalameta"   %% "munit"               % MunitVersion           % Test,
       "org.typelevel"   %% "munit-cats-effect-2" % MunitCatsEffectVersion % Test,
-      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion
+      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion,
+      "software.amazon.awssdk" % "dynamodb" % "2.17.54"
     ),
     addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.0" cross CrossVersion.full),
     addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),

@@ -16,6 +16,7 @@ object DbserverServer {
       client <- BlazeClientBuilder[F](global).stream
       helloWorldAlg = HelloWorld.impl[F]
       jokeAlg = Jokes.impl[F](client)
+      eventStoreAlg = EventStore.impl[F]
 
       // Combine Service Routes into an HttpApp.
       // Can also be done via a Router if you
@@ -23,7 +24,8 @@ object DbserverServer {
       // in the underlying routes.
       httpApp = (
         DbserverRoutes.helloWorldRoutes[F](helloWorldAlg) <+>
-        DbserverRoutes.jokeRoutes[F](jokeAlg)
+        DbserverRoutes.jokeRoutes[F](jokeAlg) <+>
+          DbserverRoutes.eventStoreRoutes[F](eventStoreAlg)
       ).orNotFound
 
       // With Middlewares in place
