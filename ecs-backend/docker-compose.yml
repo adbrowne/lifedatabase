@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    # build: .
+    image: 662430452979.dkr.ecr.us-west-2.amazonaws.com/lifedatabase-web
+    ports:
+      - "80:80"
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: lifedatabase
+        awslogs-region: us-west-2
+        awslogs-stream-prefix: web
