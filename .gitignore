@@ -106,3 +106,7 @@ dist
 # Terraform
 
 .terraform/
+
+.DS_Store
+
+ecs-backend/bin

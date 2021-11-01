@@ -7,6 +7,7 @@ aws ecr create-repository \
     --image-scanning-configuration scanOnPush=true \
     --region us-west-2
 
+docker build . -t lifedatabase-web:latest
 docker tag lifedatabase-web:latest 662430452979.dkr.ecr.us-west-2.amazonaws.com/lifedatabase-web:latest
 
 docker push 662430452979.dkr.ecr.us-west-2.amazonaws.com/lifedatabase-web:latest

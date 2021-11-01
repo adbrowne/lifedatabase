@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     # build: .
-    image: 662430452979.dkr.ecr.us-west-2.amazonaws.com/lifedatabase-web
+    image: 662430452979.dkr.ecr.us-west-2.amazonaws.com/lifedatabase-web:latest
     ports:
       - "80:80"
     logging:
