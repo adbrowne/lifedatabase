@@ -3,5 +3,4 @@
   to = "http://lifedatabase-822610598.us-west-2.elb.amazonaws.com/:splat"
   status = 200
   force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
   signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
