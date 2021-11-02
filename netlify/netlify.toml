@@ -4,3 +4,8 @@
   status = 200
   force = true # COMMENT: ensure that we always redirect
   signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
+
+  from = "/headers"
+  to = "https://httpbin.org/headers"
+  status = 200
+  signed = "PROXY_REQUEST_KEY"
