@@ -5,6 +5,7 @@
   force = true # COMMENT: ensure that we always redirect
   signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
 
+[[redirects]]
   from = "/headers"
   to = "https://httpbin.org/headers"
   status = 200
