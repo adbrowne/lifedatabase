@@ -3,13 +3,10 @@
   to = "http://lifedatabase-822610598.us-west-2.elb.amazonaws.com/:splat"
   status = 200
   force = true # COMMENT: ensure that we always redirect
-  signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
+  signed = "API_SIGNATURE_TOKEN"
 
 [[redirects]]
   from = "/headers"
   to = "https://httpbin.org/headers"
   status = 200
-  signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
-
-[build.environment]
-  API_SIGNATURE_TOKEN_PLACEHOLDER = "value"
+  signed = "API_SIGNATURE_TOKEN"
