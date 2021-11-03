@@ -9,4 +9,7 @@
   from = "/headers"
   to = "https://httpbin.org/headers"
   status = 200
-  signed = "PROXY_REQUEST_KEY"
+  signed = "API_SIGNATURE_TOKEN_PLACEHOLDER"
+
+[build.environment]
+  API_SIGNATURE_TOKEN_PLACEHOLDER = "value"
